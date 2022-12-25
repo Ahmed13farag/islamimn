@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami0mn/sura_details/sura_details_Args.dart';
 import 'package:islami0mn/sura_details/sura_widget.dart';
+import 'package:provider/provider.dart';
+import '../Providers/settings_provider.dart';
 
 class SuraDetails extends StatefulWidget {
   static const String routName = "SuraDetails";
@@ -15,6 +17,7 @@ class _SuraDetailsState extends State<SuraDetails> {
 
   @override
   Widget build(BuildContext context) {
+    var settingsProvider = Provider.of<SettingsProvider>(context);
     SuraDetailsArgs  args =
     (ModalRoute.of(context)?.settings.arguments) as SuraDetailsArgs;
       if(sura.isEmpty) {
@@ -23,7 +26,7 @@ class _SuraDetailsState extends State<SuraDetails> {
     return Container(
         decoration: BoxDecoration(
         image: DecorationImage(
-        image: AssetImage('assets/images/back_ground_light.png'),
+        image: AssetImage(settingsProvider.getMainBackGrounimage()),
     fit: BoxFit.fill,),
 
     ),
@@ -47,7 +50,7 @@ class _SuraDetailsState extends State<SuraDetails> {
         return SuraWidget (sura[index] , index+1);
       }, itemCount: sura.length,
       separatorBuilder: (_,__){
-        return Container(color: Theme.of(context).primaryColor,
+        return Container(color: Theme.of(context).accentColor,
           height: 1,
           width: double.infinity,
           margin: EdgeInsets.symmetric(horizontal: 50),
@@ -63,7 +66,8 @@ class _SuraDetailsState extends State<SuraDetails> {
   }
 
   void readFile(int fileIndex ) async {
-    String fileContent = await rootBundle.loadString("assets/files/$fileIndex.txt");
+    String fileContent = await rootBundle.loadString
+      ("assets/files/$fileIndex.txt");
     List<String> lines = fileContent.trim().split('\n');
     sura = lines;
     setState(() {

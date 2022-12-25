@@ -24,7 +24,7 @@ class _HadethTabState extends State<HadethTab> {
             return HadethTitle(allHadthList[index]);},
             itemCount: allHadthList.length,separatorBuilder: (_,index){
                 return Container(
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).accentColor,
                   width: double.infinity,
                   height: 1,
                   margin: EdgeInsets.symmetric(horizontal: 50, vertical: 3),

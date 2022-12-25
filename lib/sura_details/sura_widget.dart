@@ -11,7 +11,8 @@ class SuraWidget extends StatelessWidget {
     return Container(
 
       padding: EdgeInsets.symmetric(vertical: 8 , horizontal: 8),
-      child: Text("$conntent ($index) ", textAlign: TextAlign.center, style: TextStyle(fontSize: 24),textDirection: TextDirection.rtl, ),
+      child: Text("$conntent ($index) ", textAlign: TextAlign.center,
+        style: Theme.of(context).textTheme.headline6,textDirection: TextDirection.rtl, ),
     );
   }
 }

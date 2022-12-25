@@ -9,7 +9,32 @@ class MyTheme {
 
 
   static final ThemeData LightTheme = ThemeData(
-    primaryColor: lightPrimary,
+    bottomSheetTheme: BottomSheetThemeData(
+        backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(18),
+              topRight: Radius.circular(18),
+            )
+        )
+    ),
+
+    textTheme: TextTheme(
+      headline4: TextStyle(fontSize: 30 ,
+          fontWeight: FontWeight.bold ,
+          color :lightAccent ),
+
+      headline5: TextStyle(fontSize: 26 ,
+          fontWeight: FontWeight.bold,
+          color: Colors.black),
+
+      headline6: TextStyle(fontSize: 22 ,
+          fontWeight: FontWeight.bold,
+      color: lightAccent),
+    ),
+    cardColor: Colors.white,
+   primaryColor: lightPrimary,
+    accentColor: lightAccent,
     appBarTheme: const AppBarTheme(
       color: Colors.transparent,
       elevation: 0,
@@ -24,7 +49,7 @@ class MyTheme {
       showUnselectedLabels: false,
       selectedIconTheme: IconThemeData(size: 36 , color: lightAccent),
       unselectedIconTheme: IconThemeData(size: 24 , color: Colors.white),
-      selectedLabelStyle: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.bold ),
+      selectedLabelStyle: TextStyle(color: Colors.black),
       selectedItemColor: Colors.black,
     ),
   );
@@ -32,7 +57,35 @@ class MyTheme {
 
 
   static final ThemeData DarkTheme = ThemeData(
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: darkPrimary,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(18),
+          topRight: Radius.circular(18),
+        )
+      )
+    ),
+
+    textTheme: TextTheme(
+      headline4: TextStyle(fontSize: 30 ,
+          fontWeight: FontWeight.bold,
+      color: Colors.white),
+
+      headline5: TextStyle(fontSize: 26 ,
+          fontWeight: FontWeight.bold,
+          color: Colors.white),
+
+      headline6: TextStyle(fontSize: 22 ,
+          fontWeight: FontWeight.bold,
+      color: darkAceent),
+    ),
+
+
+
+    cardColor: darkPrimary,
     primaryColor: darkPrimary,
+    accentColor: darkAceent,
     appBarTheme: const AppBarTheme(
       color: Colors.transparent,
       elevation: 0,
@@ -50,8 +103,6 @@ class MyTheme {
       selectedLabelStyle: TextStyle(color: darkAceent),
       selectedItemColor: darkAceent,
 
-      //unselectedItemColor: IconThemeData(size: 24 , color: Colors.white),
-      //selectedItemColor: IconThemeData(size: 36 ,color: Colors.black),
     ),
   );
 
